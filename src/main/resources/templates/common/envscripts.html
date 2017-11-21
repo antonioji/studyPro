@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:fragment="env">
+		<meta charset="UTF-8" />
+		<meta th:name="_csrf" th:content="${_csrf.token}"/>
+		<meta th:name="_csrf_header" th:content="${_csrf.headerName}"/>
+
+		<title>Thymeleaf Script Page</title>
+		<!-- js -->
+		<script type="text/javascript">
+		
+		
+		
+		
+		window.b2 = {};
+		</script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script th:src="@{/js/common/ajax.js}"></script>
+		<script th:src="@{/js/common/content_ui.js}"></script>
+		<script th:src="@{/js/common/class.js}"></script>
+		<script th:src="@{/js/common/b2.common.js}"></script>
+		<script th:src="@{/js/common/jquery.tmpl.min.js}"></script>
+		<script th:src="@{/js/common/jquery.tmplplus.min.js}"></script>
+		
+		
+	</head>
+</html>

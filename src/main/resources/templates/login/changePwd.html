@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/Loginlayout">
+	<div layout:fragment="content" >
+		<script type="text/javascript" th:src="@{/js/login/changePwd.js}"></script>
+		<div id="ct" class="no_shadow ">
+		    <form id="changePwdForm" name="changePwdForm" method="POST" action="">
+		    <input type="hidden" id="custEmailAddr" name="custEmailAddr" th:value="${mbMbrOcpnAthnt.custEmailAddr}"></input>
+			<div class="s_join_wp">
+			    <div class="inner">
+			        <div class="join_essential_info">
+			            <h2 class="essential" style="text-align: center;">새로운 비밀번호를 입력해주세요.</h2>
+			            <ul class="join_cpts">
+				            <!-- 비밀번호 -->
+				            <li class="cp_even">
+				                <label for="mbrLoginPwd"><input type="password" id="mbrLoginPwd" name="mbrLoginPwd" value="" placeholder="비밀번호" required="required" maxlength="200"></input></label>
+				                <label for="mbrLoginPwdValid"><input type="password" id="mbrLoginPwdValid" name="mbrLoginPwdValid" value="" placeholder="비밀번호 확인" required="required"  maxlength="200"></input></label>
+				            </li>
+				            <!-- 비밀번호 -->
+			            </ul>
+			        </div>
+			        <div class="join_extra_info"  >
+			       		 <div style="text-align: left; vertical-align: middle; background-color: #FFFFFF; padding-top: 20px; padding-left: 10px; padding-bottom: 20px;">
+			            	<span style="font-size: 14px;">비밀번호 설정 안내</span><br/>
+			            	<br/>
+			            	<![CDATA[
+			            	● 8~15 영문, 숫자, 특수문자를 혼합하여 사용하세요.<br/>
+			            	● 아이디와 동일하거나 연속된 문자/숫자는 사용할 수 없습니다.<br/>
+			            	● 특수문자 중 &, <, >, ",' 는 사용할 수 없습니다.<br/>
+			            	● 연속된 문자는 사용할 수 없습니다.<br/>
+			            	● 다른 사람이 알기 위순 생일/아이디/전화번호 등은 보안에 취약하여<br/>
+			            	   &nbsp; &nbsp; &nbsp;비밀번호로 적합하지 않습니다.
+			            	<!--  ]]>-->
+			            </div>
+			        </div>
+			        <div class="join_btn_area">
+			            <button type="submit" class="btn_join_n" id="submit">확인</button>
+			        </div>
+			        <div class="join_extra_info">
+						<p>롯데계열사를 하나의 아이디로 사용하는 L.POINT<br/>통합회원이시면 롯데멤버스에서 회원정보를 찾아주세요.</p>
+						<ul >
+							<li >
+								<span class="lileft" style="margin-right: 15px;"><a href="#"  >아이디 찾기</a></span>
+								<span class="liright"><a href="#" >비밀번호 찾기</a></span>
+							</li>
+						</ul>
+					</div>
+			    </div>
+			</div>
+		 </form>
+		</div>
+	</div>
+</html>

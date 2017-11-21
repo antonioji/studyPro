@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/Loginlayout">
+	<div layout:fragment="content" >
+		<script type="text/javascript" th:src="@{/js/regist/chooseRegistrationType.js}"></script>
+		<div id="ct" class="no_shadow ">
+			<div class="s_join_wp" style="background-color: #FFFFFF;">
+				 <div class="inner" >
+				 	<div style="border-style:solid; border-color: #dfe2e6;border:1px 1px 1px 1px; padding: 15px 15px 15px 15px;">
+					 	<div class="join_essential_info" >
+					 		<h2 class="essential"><img th:src="@{/images/logo_type01.png}"  alt="L.POINT" style="width: 30%"></img></h2>
+					 		<div style="border-bottom: 1px; border-color: black; border-style: solid; margin-top: 4px;"></div>
+					 		<ul class="join_cpts">
+					 			<li>
+					 				● L.POINT 회원으로 가입하시면 엘롯데를 포함한 롯데 백화점, <br/>
+					 				롯데 슈퍼, 롯데 면세점, 롯데 홈쇼핑 등 L.POINT 제휴사 사이트와 <br/>
+					 				모바일에서 하나의 통합 ID로 편리하게 이용하실 수 있습니다.<br/>
+					 				<br/>
+					 				● L.POINT 통합 회원이 되시면 온라인/오프라인 어디서든 <br/>
+					 				자유롭게 L.POINT 적립 및 사용할 수 있습니다.<br/>
+					 				<br/>
+					 				● 전체 롯데계열 사이트로 모두 가입되는 것이 아니고, 회원님꼐서<br/>
+					 				가입을 희망하시는 롯데계열사의 회원약관에 동의하신 경우에만 <br/>
+					 				가입이 됩니다.
+					 			</li>
+					 		</ul>
+					 	</div>
+					 	<div class="join_btn_area">
+				            <button type="button" class="btn_join_b" id="btnLpointRegist">L.POINT 가입하기</button>
+				        </div>
+			        </div>
+				 </div>
+				 <div class="inner" >
+				 	<div style="border-style:solid; border-color: #dfe2e6;border:1px 1px 1px 1px; padding: 15px 15px 15px 15px;">
+					 	<div class="join_essential_info" >
+					 		<h2 class="essential"><img th:src="@{/images/ellotte_title.PNG}"  alt="EL.POINT" style="width: 30%"></img></h2>
+					 		<div style="border-bottom: 1px; border-color: black; border-style: solid; margin-top: 4px;"></div>
+					 		<ul class="join_cpts">
+					 			<li>
+					 				● 엘롯데가 운영하는 사이트에서만 제한적으로 이용할 수 있는 <br/>
+					 				ID를 발급박고 서비스를 이용할 수 있습니다. <br/>
+					 				<br/>
+					 				● 본인인증 없이 쉽게 계정을 만들 수 있습니다. <br/>
+					 				<br/>
+					 				※ 엘롯데가 자체적으로  발행하는 마일리지 및 서비스 쿠폰은<br/>
+					 				엘롯데가 운영하는 사이트에서만 사용할 수 있습니다. <br/>
+					 				(단, 일부 이벤트 마일리지 및 쿠폰 혜택은 제한될 수 있습니다.)
+					 			</li>
+					 		</ul>
+					 	</div>
+					 	<div class="join_btn_area">
+				            <button type="button" class="btn_join_b" id="btnMemberRegist">간편가입 계정 생성</button>
+				        </div>
+			        </div>
+				 </div>
+			</div>
+		</div>
+	</div>
+</html>

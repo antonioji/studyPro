@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/Loginlayout">
+	<div layout:fragment="content" >
+		<script type="text/javascript" th:src="@{/js/login/findMemberPwd.js}"></script>
+		<div class="no_shadow">
+	        <form id="findPwdForm" name="findPwdForm" method="post">
+	       		<input type="hidden" id="ocpnAthntSn" name="ocpnAthntSn" value=""></input>
+		        <div class="s_join_wp">
+		        	<div class="inner">
+		        		<div class="join_essential_info">
+		        			<ul class="join_cpts">
+		        				 <!-- 이메일 -->
+					            <li class="cp_certify">
+					                <!-- 이메일 입력란 -->
+					                <div class="field">
+					                    <label for="custEmailAddr"><input type="text" id="custEmailAddr" name="custEmailAddr" maxlength="50" required="required" style="text-transform: lowercase;"  placeholder="이메일"></input></label>
+					                </div>
+					            </li>
+					            <!-- 이메일 -->
+		        				<!-- 이름 -->
+					            <li class="cp_certify">
+					                <label for="custNm"><input type="text" id="custNm" name="custNm" placeholder="이름"  maxlength="30" required="required"></input></label>
+					            </li>
+								<!-- 휴대폰 번호 -->
+					            <li class="cp_certify">
+						             <span class="field" style="width: 25%;float: left; background-color: #FFFFFF">
+						            	<select id="mccNoCd" name="mccNoCd" >
+						            		<option value="010">010</option>
+						            		<option value="011">011</option>
+						            		<option value="016">016</option>
+						            		<option value="017">017</option>
+						            		<option value="018">018</option>
+						            		<option value="019">019</option>
+						            	</select>
+						             </span>
+					            	<span class="field" style="width:68%; padding-right: 0px; padding-left:8px; float: right;">
+					                	<label for="cellPhone"><input type="text" id="cellPhone" name="cellPhone" value="" placeholder="휴대폰 번호" maxlength="8"></input></label>
+					                </span>
+					            </li>
+					        </ul>
+						</div>
+						<div class="essential" style="padding-left: 20px; padding-right: 20px;">
+							<button type="submit" class="btn_join_n" id="submit">확인</button>
+						</div>
+						<div class="join_extra_info" style="display: none;" id="alertDiv">
+							<ul style="text-align: center; vertical-align: middle;">
+								<li id="alertLi"  style="height: 100px; background-color: #FFFFFF; padding-top: 20px;">
+								</li>
+							</ul>
+						</div>
+						<div class="join_extra_info" style="display: none;" id="alertEmailSendDiv">
+							<ul style="text-align: center; vertical-align: middle;  background-color: #FFFFFF; ">
+								<li style="padding-top: 20px;">
+									인증메일이 고객님 이메일로 발송되었습니다.<br/>
+									유효기간 이내에 인증완료 해주세요.
+								</li>
+								<li style="font-size:18px; font-weight:bold; margin-top: 10px; margin-bottom: 10px">
+									아이디 : <span id="custEmailAddrSpan"></span>
+								</li>
+								<li style="margin-top: 5px; margin-bottom: 5px">
+									인증 유효기간 : <span id="athntTmntDttmSpan"></span> 까지
+								</li>
+								<li>
+									<button id="btnResend" type="button" style="    border-color: #000000;    background-color: red;    color: white;    width: 70%;    height: 30px;    margin-bottom: 10px;">재전송</button>
+								</li>
+							</ul>
+						</div>
+						<div class="join_extra_info">
+							<p>롯데계열사를 하나의 아이디로 사용하는 L.POINT<br/>통합회원이시면 롯데멤버스에서 회원정보를 찾아주세요.</p>
+							<ul >
+								<li >
+									<span class="lileft" style="margin-right: 15px;"><a href="#"  >아이디 찾기</a></span>
+									<span class="liright"><a href="#" >비밀번호 찾기</a></span>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+    </div>
+</html>

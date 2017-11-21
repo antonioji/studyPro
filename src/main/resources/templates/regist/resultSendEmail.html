@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/Loginlayout">
+	<div layout:fragment="content" >
+		<script type="text/javascript" th:src="@{/js/regist/resultSendEmail.js}"></script>
+		<input type="hidden" id="ocpnAthntSn" th:value="${mbMbrOcpnAthnt.ocpnAthntSn}"></input>
+		<input type="hidden" id="custEmailAddr" th:value="${mbMbrOcpnAthnt.custEmailAddr}"></input>
+		<input type="hidden" id="athntTmntDttm" th:value="${mbMbrOcpnAthnt.athntTmntDttm}"></input>
+		<div class="easy_login_wrap">
+	        <div class="id_find_box" style="text-align: center; vertical-align: middle;">
+				<h3 class="id_find_title" >인증메일이 고객님 이메일로 발송되었습니다. <br/>유효기간 이내에 인증완료 해주세요.</h3>
+				<div style="font-size:18px; font-weight:bold; margin-top: 10px; margin-bottom: 10px">
+					아이디 : <span id="custEmailAddrSpan"></span>
+				</div>
+				<div style="margin-top: 5px; margin-bottom: 5px">
+					인증 유효기간 : <span id="athntTmntDttmSpan"></span> 까지
+				</div>
+				<div class="view_order_btn">
+					<a href="#"  class="c_btn col01" id="btnResend"><span>재전송</span></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</html>

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" class="ng-scope" >
+
+<head th:replace="common/env :: env"></head>
+<body class="ng-scope">
+	<div id="wrapper" >
+		<div th:replace="common/header :: header"></div>
+		<div layout:fragment="content"></div>
+		<footer  th:replace="common/footer :: footer"></footer>
+	</div>
+</body>
+</html>

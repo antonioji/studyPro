@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/Loginlayout">
+
+	<div layout:fragment="content" >
+		<script type="text/javascript" th:src="@{/js/login/loginForm.js}"></script>
+	    <section id="lotteLoginFormCont" >
+		    <div  class="ng-scope">
+		        <form id="loginForm" th:action="@{/login/form}" method="post" class="ng-pristine ng-valid ng-valid-maxlength">
+		        	<input type="hidden" id="loginType" name="loginType" value="L"></input><!-- L : lpoint , M :mine -->
+		            <!-- 로그인 -->
+		            <section class="easy_login_wrap type2017">
+		            	<ul class="menu type2 ng-scope" >
+		                    <li class="list-tab on" id="tab_lpoint" ><a href="#tab1">L.POINT 통합/간편 회원</a></li>
+		                    <li class="list-tab" id="tab_only" ><a href="#tab2">비회원 주문조회</a></li>
+		                </ul>
+				        <ul class="menu radio ng-scope" id="chooseMemberTypeUl" >
+		                    <li class="list-tab on" id="tab_lpoint" >
+		                        <span class="combo">
+		                            <input type="radio" name="memLogin" id="memLogin1" value="Lpoint" class="radio01" checked="checked"></input>
+		                            <label for="mem_login1"><span>L.POINT 통합 회원</span></label>
+		                        </span>
+		                    </li>
+		                    <li class="list-tab" id="tab_only" >
+		                        <span class="combo">
+		                            <input type="radio" name="memLogin" id="memLogin2" value="Me" class="radio01"></input>
+		                            <label for="mem_login2"><span>간편가입 계정</span></label>
+		                        </span>
+		                    </li>
+		                </ul>
+		                <!-- 회원 -->
+		                <!-- L.point 회원 -->
+		                <div class="easy_login_box ng-scope" id="tab1">
+		                    <article class="member sub-tab" style="display: block;">
+		                        <fieldset>
+		                            <legend>L.POINT 통합회원 로그인</legend>
+		                            <p class="info_txt ng-scope" ><span id="memberTypeText">L.POINT 통합 회원은 한 아이디로 롯데 전 계열사를 이용 가능합니다. </span></p><!-- end ngIf: isSmartpick != 'Y' -->
+		                            <ul class="easy_login_input">
+		                                <li>
+		                                	<input type="text" id="mbrLoginId" name="mbrLoginId"   class="txt01 ng-pristine ng-untouched ng-valid ng-valid-maxlength" th:value="${mbrLoginId}"  placeholder="아이디 또는 이메일 아이디" required="required" title="아이디 또는 이메일 아이디" maxlength="200" ></input>
+		                                </li>
+		                                <li>
+		                                	<input type="password" id="mbrLoginPwd"  name="mbrLoginPwd" class="txt01 ng-pristine ng-untouched ng-valid ng-valid-maxlength"   placeholder="비밀번호" title="비밀번호" maxlength="200" required="required"></input>
+		                                </li>
+
+										<li th:if="${err_msg != null}">
+											<span id="memberTypeText" style="color:red" th:text="${err_msg}" ></span>
+										</li>
+
+		                                <li style="float: left; ">
+		                                    <span style="margin-right: 15px;">
+		                                        <input type="checkbox" class="check01" id="rememberMe" name="rememberMe" title="자동 로그인" checked="checked" ></input>
+		                                        <label for="auto">자동 로그인</label>
+		                                    </span>
+		                                    <span>
+		                                        <input type="checkbox" class="check01" id="mbrLoginIdSave" name="mbrLoginIdSave" title="아이디 저장" checked="checked"></input>
+		                                        <label for="save" id="Lbsave">아이디 저장</label>
+		                                    </span>
+		                                </li>
+		                            </ul>
+		                            <div class="login_btn01">
+		                                <a  href="#" class="c_btn col01 btn_login"><span>로그인</span></a>
+		                            </div>
+
+		                            <!-- 아이디찾기 / 비밀번호찾기 / 회원가입 -->
+		                            <ul  class="join_link_wrap ng-scope">
+		                                <li><a  th:href="@{/login/findMemberId}" id="getId">아이디 찾기</a></li>
+		                                <li><a  th:href="@{/login/findMemberPwd}" id="getPwd">비밀번호 찾기</a></li>
+		                                <li><a  th:href="@{/regist/chooseRegistrationType}" id="registMember">회원가입</a></li>
+		                            </ul>
+		                            <div class="login_etc">
+					                    <dl class="login_desc">
+					                        <dt>자주 사용하는 소셜 계정이 있으신가요?</dt>
+					                        <dd>L.POINT 통합회원은 소셜 계정으로 간편하게 로그인이 가능합니다.</dd>
+					                    </dl>
+					                    <ul class="btn_group" id="otherLoginIl">
+						                  	<li><a href="#"  title="새 창 열림"><img th:src="@{/images/btn_facebook.jpg}"  alt="페이스북 로그인"></img></a></li>
+						                   	<li><a href="#"  title="새 창 열림"><img th:src="@{/images/btn_naver.jpg}" alt="네이버 로그인" ></img></a></li>
+					                   	</ul>
+					                </div>
+		                        </fieldset>
+		                    </article>
+		                </div>
+		                <!-- //L.point 회원 -->
+
+		                <!--  비회원 로그인 -->
+		                <div class="easy_login_box ng-scope" id="tab2" style="display: none">
+		                    <article class="member sub-tab" style="display: block;">
+		                        <fieldset>
+		                            <legend>비회원 로그인</legend>
+		                            <p class="info_txt ng-scope" >
+		                            	<span style="font-style:normal;font-weight: bold;">비회원의 주문번호와 이메일 주소를 입력해 주세요.</span><br/>
+		                            	주문 일로부터 1년 이내 주문정보만 조회 가능합니다.
+		                            </p>
+
+		                            <ul class="easy_login_input">
+		                                <li>
+		                                	<input type="text" class="txt01 ng-pristine ng-untouched ng-valid ng-valid-maxlength" id="orderNo" value=""  name="orderNo" placeholder="주문번호 (예시 : 2015-02-01-1234567)" title="주문번호 (예시 : 2015-02-01-1234567)" maxlength="200" ></input>
+		                                </li>
+		                                <li>
+		                                	<input type="text" class="txt01 ng-pristine ng-untouched ng-valid ng-valid-maxlength" id="emailAddr"  name="emailAddr"  placeholder="이메일 주소" title="이메일 주소" maxlength="200"></input>
+		                                </li>
+		                            </ul>
+		                            <div class="login_btn01">
+		                                <a  href="#" class="c_btn col01"><span>비회원 주문조회</span></a>
+		                            </div>
+		                            <!-- 아이디찾기 / 비밀번호찾기 / 회원가입 -->
+		                            <ul >
+		                                <li>
+		                                	<span style="float: left;">
+		                                	</span>
+		                                	<span style="float: right;">
+		                                		<button type="button" >회원가입</button>
+		                                	</span>
+		                                </li>
+		                            </ul>
+		                        </fieldset>
+		                    </article>
+		                </div>
+		                <!--  //비회원 로그인 -->
+		                <!-- //회원 -->
+		            </section>
+		            <!-- //로그인 -->
+		        </form>
+		        <!-- 소셜 로그인 -->
+		        <form id="sociallogin_frm" name="sociallogin_frm" method="post" class="ng-pristine ng-valid">
+		            <input type="hidden" name="targetUrl" id="targetUrl"></input>
+		            <input type="hidden" name="copToken"></input>
+		            <input type="hidden" name="copCls"></input>
+		        </form>
+
+		        <!--주문서 넘어가기 직전 로딩바-->
+		        <div class="buyLoading" id="buyLoading">
+		            <a  href="#" class="btnOptionClose">팝업닫기</a>
+		            <div class="loading"></div>
+		            <div class="message">탁월한 선택! 엘롯데입니다.</div>
+		        </div>
+		        <!-- 임직원 등록 팝업 -->
+		        <section id="pageCover"></section>
+		        <div id="lotteStaffGuide" class="lotteStaffGuide">
+		            <header id="head_sub">
+		                <h2><strong>롯데 임직원 고객님</strong> 환영합니다!</h2>
+		                <p>지금 임직원 등록하시고 혜택 누리세요~</p>
+		            </header>
+		            <div>
+		                <ul class="list">
+		                    <li><span class="first_letter">혜택1. </span>
+		                        상품 구매 시 최대 15% 할인혜택을 드립니다.<br/>
+		                        <var>(단, 임직원 할인 시 타할인 수단 적용 불가)</var>
+		                    </li>
+		                    <li><span class="first_letter">혜택2. </span>
+		                        임직원 전용 특가매장(임직원 명절 매장 등)<br/>
+		                        운영 시 상품 구매 혜택을 드립니다.
+		                    </li>
+		                </ul>
+		                <ul class="optionBtn">
+		                    <li><a  href="#" class="btn_close">닫기</a></li>
+		                    <li><a  href="#" class="btn_addr">임직원 등록하기</a></li>
+		                </ul>
+		            </div>
+		        </div>
+		        <!-- //임직원 등록 팝업 -->
+
+		        <!-- 제휴로그인 미맵핑 Loadding -->
+		        <div class="social_mapping_wrap ng-hide" style="display: none;">
+		            <div class="inner_wrap">
+		                로그인 처리중입니다. 잠시만 기다려 주세요.
+		            </div>
+		            <div class="loading"></div>
+		        </div>
+		    </div>
+		</section>
+    </div>
+</html>

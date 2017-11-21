@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<div  th:fragment="header">
+		<section class="head_section">
+				<header id="head">
+					<div class="header_wrap">
+						<div class="header_top_wrap">
+							<h1><a href="#"><span>ellotte.com</span></a></h1>
+							<div class="left_btn">
+								<a  href="#" class="category" ><span>카테고리</span></a>
+							</div>
+							<div class="right_btn">
+								<a  href="#" class="cart" ><span>장바구니</span><em  class="ng-binding ng-scope">0</em></a>
+							</div>
+							<div class="search">
+							</div>
+						</div>
+					</div>
+				</header>
+		</section>
+		<section class="searchLayerContainer">
+				<section id="feSrhLayer"  class="ng-hide">
+				    <form id="searchForm"  name="searchForm" action=""  class="ng-pristine ng-invalid ng-invalid-required">
+					    <fieldset>
+					        <legend class="blind">키워드 검색</legend>
+					            <section class="srh_layer">
+					                <div class="srh_wrap">
+					                    <div class="srh_ipt">
+					                        <input type="search"  name="keyword" id="keyword" placeholder="검색어를 입력하세요." autocomplete="off"  class="ng-pristine ng-untouched ng-invalid ng-invalid-required"></input>
+					                    </div>
+					                    <a  href="#" class="btn_del ng-hide">검색어 삭제</a>
+					                    <a  href="#" class="btn_srh">검색</a>
+					                    <div class="srh_close_btn">
+					                        <a  href="#" class="close"></a>                     
+					                    </div>
+					                </div>
+					            </section>
+					    </fieldset>
+					</form>
+				</section>
+			</section>
+	        <header id="head_sub" style="">
+			    <h2 >
+			        <span>
+			            <span class="title ng-binding" th:text="${title}"></span>
+			        </span>
+			    </h2>
+			    <p class="prev">
+			        <a  href="#" id="btnPrev">이전</a>
+			    </p>
+			</header>
+	</div>
+</html>
